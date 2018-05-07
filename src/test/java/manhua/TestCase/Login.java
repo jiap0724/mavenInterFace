@@ -1,4 +1,4 @@
-package test1;
+package manhua.TestCase;
 
 import org.testng.annotations.Test;
 

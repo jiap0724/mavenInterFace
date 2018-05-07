@@ -1,4 +1,4 @@
-package test1;
+package manhua.TestCase;
 
 import java.io.IOException;
 
@@ -16,9 +16,8 @@ import org.testng.annotations.Test;
 
 import dataDriver.ReadExcel;
 
-
-public class Demo1 {
-	@Test(dataProvider = "homepage")
+public class Demo2 {
+	@Test(dataProvider = "getdata")
 	public void getUserInfo(String case_1, String url, String assert_1) throws IOException {
 
 		CloseableHttpClient httpclient = HttpClients.createDefault(); // 创建默认的httpClient实例
@@ -52,13 +51,12 @@ public class Demo1 {
 		Reporter.log(case_1); // 输出报告
 	}
 
-	@DataProvider(name = "homepage") // 将数据集合命名为"homepage"
+	@DataProvider(name = "getdata") // 将数据集合命名为"homepage"
 	public static Object[][] words() throws IOException {
 		// 测试数据准备
 		String file = "/Users/jiapeng/DeskTop/TestData/LoginTest.xls";
 		Object[][] records;
-		records = ReadExcel.getExpectationData(file, "vcomic");
+		records = ReadExcel.getExpectationData(file, "picoocLogin中文");
 		return records;
 	}
 }
-
